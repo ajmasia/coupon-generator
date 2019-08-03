@@ -1,0 +1,9 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "rules": {
+    "order-imports": false,
+    "object-literal-sort-keys": true
+  },
+  "rulesDirecory": []
+}

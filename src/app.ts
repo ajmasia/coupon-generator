@@ -1,19 +1,21 @@
-console.log("App running ...")
+// tslint:disable-next-line: no-console
+console.log('App running ...')
 import { add } from 'ramda'
 
 export class Hero {
-    name: string
+  private name: string
 
-    constructor(name: string) {
-        this.name = name
-    }
-
-    myName()
-    {
-        return this.name
-    }
+  constructor(name: string) {
+    this.name = name
   }
 
-  let hero = new Hero('krunal')
-  console.log(hero.myName())
-  console.log('SUM', add(3,3))
+  public myName() {
+    return this.name
+  }
+}
+
+const hero = new Hero('krunal')
+// tslint:disable-next-line: no-console
+console.log(hero.myName())
+// tslint:disable-next-line: no-console
+console.log('SUM', add(3, 3))
