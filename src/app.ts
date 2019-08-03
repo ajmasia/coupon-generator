@@ -1,4 +1,5 @@
 console.log("App running ...")
+import { add } from 'ramda'
 
 export class Hero {
     name: string
@@ -15,3 +16,4 @@ export class Hero {
 
   let hero = new Hero('krunal')
   console.log(hero.myName())
+  console.log(add(3,3))
