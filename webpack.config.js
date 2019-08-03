@@ -20,12 +20,12 @@ module.exports = {
       }
     ]
   },
-  plugins: {
-    html: new HtmlWebpackPlugin({
+  plugins: [
+    new HtmlWebpackPlugin({
       template: path.join('./src', 'index.html'),
       filename: './index.html'
     })
-  },
+  ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
     hotOnly: false,
