@@ -16,4 +16,4 @@ export class Hero {
 
   let hero = new Hero('krunal')
   console.log(hero.myName())
-  console.log(add(3,3))
+  console.log('SUM', add(3,3))

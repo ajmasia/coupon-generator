@@ -2,9 +2,9 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src', 'app.ts'),
+  entry: path.join(__dirname, 'src', 'app.ts'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   resolve: {
@@ -22,15 +22,15 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join('./src', 'index.html'),
+      template: path.join('src', 'index.html'),
       filename: './index.html'
     })
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'dist'),
     hotOnly: false,
     overlay: true,
     port: 3000,
-    host: 'localhost'
+    host: '0.0.0.0'
   }
 }
