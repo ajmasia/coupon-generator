@@ -27,7 +27,7 @@ module.exports = {
     })
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    contentBase: path.resolve(__dirname, 'dist'),
     hotOnly: false,
     overlay: true,
     port: 3000,
