@@ -1,0 +1,24 @@
+{
+  "name": "coupongenerator",
+  "version": "0.1.0",
+  "description": "Coupon generator app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajmasia/couponGenerator.git"
+  },
+  "keywords": [
+    "typescript",
+    "javascript",
+    "webpack"
+  ],
+  "author": "Antonio José Masiá <email@antoniomasia.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajmasia/couponGenerator/issues"
+  },
+  "homepage": "https://github.com/ajmasia/couponGenerator#readme"
+}
