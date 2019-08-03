@@ -20,5 +20,14 @@
   "bugs": {
     "url": "https://github.com/ajmasia/couponGenerator/issues"
   },
-  "homepage": "https://github.com/ajmasia/couponGenerator#readme"
+  "homepage": "https://github.com/ajmasia/couponGenerator#readme",
+  "devDependencies": {
+    "babel-loader": "^8.0.6",
+    "html-webpack-plugin": "^3.2.0",
+    "ts-loader": "^6.0.4",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {}
 }
