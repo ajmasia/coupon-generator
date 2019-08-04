@@ -1,4 +1,4 @@
-import { getLargestNum, padNumber } from '../../utils'
+import getSecuentialCoupons from './utils/secuential'
 
 class Coupon {
   // Properties
@@ -6,19 +6,7 @@ class Coupon {
   private long: number = 5
 
   public generate(initValue: number): string[] {
-    const macNumber = getLargestNum(this.long)
-
-    if (initValue > macNumber - this.amount + 1) {
-      return ['Error: Initial value It is higher than allowed']
-    }
-
-    const result: string[] = Array.from(Array(this.amount), (x, index) => {
-      const num: number = index + initValue
-
-      return padNumber(num.toString(), this.long)
-    })
-
-    return result
+    return getSecuentialCoupons(initValue, this.long, this.amount)
   }
 }
 
