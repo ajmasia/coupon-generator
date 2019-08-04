@@ -1,17 +1,17 @@
-import { getLargestNum, padNumber } from '../../../utils'
+import { getHighestNumOf, padNumber } from '../../../utils'
 
 export default {
-  secuential: (initValue: number, long: number, amount: number): string[] => {
-    const macNumber = getLargestNum(long)
+  secuential: (initValue: number, digits: number, amount: number): string[] => {
+    const maxNumber = getHighestNumOf(digits)
 
-    if (initValue > macNumber - amount + 1) {
+    if (initValue > maxNumber - amount + 1) {
       return ['Error: Initial value It is higher than allowed']
     }
 
     const result: string[] = Array.from(Array(amount), (x, index) => {
       const num: number = index + initValue
 
-      return padNumber(num.toString(), long)
+      return padNumber(num.toString(), digits)
     })
 
     return result

@@ -12,10 +12,11 @@ export const padNumber = (
 }
 
 // Get HTML list method
+// getHtmlList :: (string[], string) -> string
+
 // This method generate and HTML list from string array
 // @argument elements[] -> Strings array to render
 // @argument style -> String with list style ['disc', 'circle', 'square', 'none']
-// getHtmlList :: (string[], string) -> string
 
 export const getHtmlList = (
   elements: string[],
@@ -27,6 +28,8 @@ export const getHtmlList = (
   return `<ul style="list-style-type:${style};">${output}</ul>`
 }
 
-export const getLargestNum = (value: number): number => {
-  return Number(new Array(value + value.toString().length).join('9'))
+// Get the largest number fr
+// getLargestNum
+export const getHighestNumOf = (digits: number): number => {
+  return Number(new Array(digits + digits.toString().length).join('9'))
 }

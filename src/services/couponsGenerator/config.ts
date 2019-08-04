@@ -1,5 +1,6 @@
 export default {
   algorithm: 'secuential',
-  amount: 5,
-  long: 5,
+  amount: 10,
+  digits: 10,
+  initialValue: 1,
 }

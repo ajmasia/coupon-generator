@@ -4,15 +4,16 @@ import algorithm from './utils/secuential'
 class Coupon {
   // Properties
   private amount: number = serviceConfig.amount
-  private long: number = serviceConfig.long
+  private digits: number = serviceConfig.digits
+  private initialValue: number = serviceConfig.initialValue
   private algorithm: string = serviceConfig.algorithm
 
-  public generate(initValue: number): string[] {
+  public generate(): string[] {
     switch (this.algorithm) {
       case 'secuential':
-        return algorithm.secuential(initValue, this.long, this.amount)
+        return algorithm.secuential(this.initialValue, this.digits, this.amount)
       default:
-        return algorithm.secuential(initValue, this.long, this.amount)
+        return algorithm.secuential(this.initialValue, this.digits, this.amount)
     }
   }
 }

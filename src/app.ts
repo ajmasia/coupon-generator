@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // tslint:disable-next-line: no-console
   console.log('App running ...')
 
-  const coupons: string[] = Coupons.generate(99995)
+  const coupons: string[] = Coupons.generate()
   // tslint:disable-next-line: no-console
   console.log('Generated coupons', coupons)
 
