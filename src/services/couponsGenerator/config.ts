@@ -1,6 +1,7 @@
 export default {
-  algorithm: 'secuential',
+  algorithm: 'alphanumeric',
   amount: 5,
   digits: 5,
-  initialValue: 12561,
+  initialValue: 1,
+  pattern: '#A',
 }

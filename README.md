@@ -1,4 +1,6 @@
 # Coupons generator
+**Verion 0.1.1**: Implement alphanumeric algorithm
+
 A web app that generates coupons for example for discounts in a store, through a configurable service made with [Typescript](https://www.typescriptlang.org)
 
 ## Install
@@ -41,6 +43,20 @@ You can see the results both in the browser window and the browserconsole.
 
 
 ## Changelog
+
+### Verion 0.1.1
+
+This version includes the posibility to use two different algoritms defined on the conf file. Now you can select `secuential` or `alphanumeric` algorithms:
+
+```js
+export default {
+  algorithm: 'alphanumeric',
+  amount: 5,
+  digits: 5,
+  initialValue: 1,
+  pattern: '#A',
+}
+```
 
 ### Version 0.1.0
 

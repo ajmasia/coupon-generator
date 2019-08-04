@@ -46,3 +46,30 @@ export const getHtmlList = (
 export const getHighestNumOf = (digits: number): number => {
   return Number(new Array(digits + digits.toString().length).join('9'))
 }
+
+export const getAlphanumericCode = (digits: number, pattern: string) => {
+  let mask: string = ''
+  let result: string = ''
+
+  if (pattern.indexOf('a') > -1) {
+    mask += 'abcdefghijklmnopqrstuvwxyz'
+  }
+
+  if (pattern.indexOf('A') > -1) {
+    mask += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  }
+
+  if (pattern.indexOf('#') > -1) {
+    mask += '0123456789'
+  }
+
+  if (pattern.indexOf('!') > -1) {
+    mask += '~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\'
+  }
+
+  for (let i = digits; i > 0; --i) {
+    result += mask[Math.round(Math.random() * (mask.length - 1))]
+  }
+
+  return result
+}
