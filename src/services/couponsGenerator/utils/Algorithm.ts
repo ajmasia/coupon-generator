@@ -1,7 +1,11 @@
 import { getHighestNumOf, padNumber } from '../../../utils'
 
-export default {
-  secuential: (initValue: number, digits: number, amount: number): string[] => {
+class Algorithm {
+  public secuential(
+    initValue: number,
+    digits: number,
+    amount: number
+  ): string[] {
     const maxNumber = getHighestNumOf(digits)
 
     if (initValue > maxNumber - amount + 1) {
@@ -15,5 +19,7 @@ export default {
     })
 
     return result
-  },
+  }
 }
+
+export default new Algorithm()

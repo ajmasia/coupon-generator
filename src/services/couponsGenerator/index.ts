@@ -1,5 +1,5 @@
 import serviceConfig from './config'
-import algorithm from './utils/secuential'
+import algorithms from './utils/Algorithm'
 
 class Coupon {
   // Properties
@@ -11,9 +11,17 @@ class Coupon {
   public generate(): string[] {
     switch (this.algorithm) {
       case 'secuential':
-        return algorithm.secuential(this.initialValue, this.digits, this.amount)
+        return algorithms.secuential(
+          this.initialValue,
+          this.digits,
+          this.amount
+        )
       default:
-        return algorithm.secuential(this.initialValue, this.digits, this.amount)
+        return algorithms.secuential(
+          this.initialValue,
+          this.digits,
+          this.amount
+        )
     }
   }
 }
