@@ -1,4 +1,4 @@
 {
-    "editor.formatOnSave": true,
-    "javascript.format.enable": false
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false
 }
