@@ -46,7 +46,7 @@ You can see the results both in the browser window and the browserconsole.
 
 This first versión generate secuentials coupons using a simple configuration file.
 
-Yo need to config the placed in `services/couponsGenerator/config.ts`:
+It is necessary to configure the service by entering the neneeded values in `services/couponsGenerator/config.ts`:
 
 ```js
 export default {
@@ -56,6 +56,8 @@ export default {
   initialValue: 1,
 }
 ```
+
+All this values al required.
 
 ----
 [License](./LICENSE)
