@@ -1,18 +1,14 @@
-console.log('App running ...')
-import { add } from 'ramda'
+import Coupons from './services/couponsGenerator'
+import { getHtmlList } from './utils'
 
-export class Hero {
-  private name: string
+document.addEventListener('DOMContentLoaded', () => {
+  // tslint:disable-next-line: no-console
+  console.log('App running ...')
 
-  constructor(name: string) {
-    this.name = name
-  }
+  const coupons: string[] = Coupons.generate()
+  // tslint:disable-next-line: no-console
+  console.log('Generated coupons', coupons)
 
-  public myName() {
-    return this.name
-  }
-}
-
-const hero = new Hero('krunal')
-console.log(hero.myName())
-console.log('SUM', add(3, 3))
+  const app = document.getElementById('app')!
+  app.innerHTML = getHtmlList(coupons)
+})
