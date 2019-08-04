@@ -9,7 +9,7 @@ class Algorithm {
     const maxNumber = getHighestNumOf(digits)
 
     if (initValue > maxNumber - amount + 1) {
-      return ['Error: Initial value It is higher than allowed']
+      return ['Error: Initial value it is higher than allowed']
     }
 
     const result: string[] = Array.from(Array(amount), (x, index) => {
