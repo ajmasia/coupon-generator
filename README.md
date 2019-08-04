@@ -1,4 +1,4 @@
-# Coupon generator
+# Coupons generator
 A web app that generates coupons for example for discounts in a store, through a configurable service made with [Typescript](https://www.typescriptlang.org)
 
 ## Install
