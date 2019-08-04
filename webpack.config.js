@@ -1,14 +1,15 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'app.ts'),
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.json']
+    extensions: ['.tsx', '.ts', '.js', '.json'],
   },
   module: {
     rules: [
@@ -16,21 +17,22 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: ['babel-loader', 'ts-loader'],
-        exclude: /node_modules/
-      }
-    ]
+        exclude: /node_modules/,
+      },
+    ],
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: path.join('src', 'index.html'),
-      filename: './index.html'
-    })
+      filename: './index.html',
+    }),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
-    hotOnly: false,
+    hot: true,
     overlay: true,
     port: 3000,
-    host: '0.0.0.0'
-  }
+    host: '0.0.0.0',
+  },
 }
