@@ -1,5 +1,5 @@
 # Coupons generator
-**Verion 0.1.1**
+**Verion 0.1.1**: Implement alphanumeric algorithm
 
 A web app that generates coupons for example for discounts in a store, through a configurable service made with [Typescript](https://www.typescriptlang.org)
 
