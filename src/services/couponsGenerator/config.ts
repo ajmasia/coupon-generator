@@ -1,5 +1,5 @@
 export default {
-  algorithm: 'secuenaial',
+  algorithm: 'secuential',
   amount: 5,
   long: 5,
 }
