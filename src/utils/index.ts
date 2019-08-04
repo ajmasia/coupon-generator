@@ -26,3 +26,7 @@ export const getHtmlList = (
 
   return `<ul style="list-style-type:${style};">${output}</ul>`
 }
+
+export const getLargestNum = (value: number): number => {
+  return Number(new Array(value + value.toString().length).join('9'))
+}
