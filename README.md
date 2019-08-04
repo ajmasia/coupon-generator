@@ -4,25 +4,11 @@ A web app that generates coupons for example for discounts in a store, through a
 ## Install
 To test the app, please follow the next steps:
 
-Clone this repo:
+### Clone this repo:
   
 ```git clone https://github.com/ajmasia/couponGenerator.git```
 
 ```git clone git@github.com:ajmasia/couponGenerator.git```
-
-### Run app with docker:
-
-Install app dependences:
-
-```npm run docker:install```
-
-Run app:
-
-```docker-compose up -d```
-
-Test the app in your browser `http://localhost:3000`.
-
-You can see the results both in the browser window and the browserconsole.
 
 ### Run app locally
 
@@ -38,17 +24,37 @@ Build app
 
 ```npm run build```
 
+### Run app with docker:
+
+Install app dependences:
+
+```npm run docker:install```
+
+Run app:
+
+```docker-compose up -d```
+
+Test the app in your browser `http://localhost:3000`.
+
+You can see the results both in the browser window and the browserconsole.
+
+
 
 ## Changelog
 
 ### Version 0.1.0
 
-This first versión generate 5 secuentials coupons without using configuration file.
+This first versión generate secuentials coupons using a simple configuration file.
 
-You can set the initial value in the `app.ts` file:
+Yo need to config the placed in `services/couponsGenerator/config.ts`:
 
-```javascript
-Coupons.generate(<initialValue>)
+```js
+export default {
+  algorithm: 'secuential',
+  amount: 5,
+  digits: 5,
+  initialValue: 1,
+}
 ```
 
 ----
