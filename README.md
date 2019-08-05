@@ -69,7 +69,7 @@ You can see the results both in the browser window and the browserconsole.
 
 ## Documentaion
 
-You can use two different types of algorithms to generate the coupons, `secuentila` and `alphanumeric`. To do this you just have to configure the service through the config.ts file. The algorithm type is selected in the algorithm property from the configuration file.
+You can use two different types of algorithms to generate coupons codes, `secuentila` and `alphanumeric`. To do it you just have to configure the service through the `config.ts` file. The algorithm type is selected in the algorithm property from the configuration file.
 
 ```js
 const config: IConfig = {
@@ -184,4 +184,4 @@ This project use the next tecnologies trying to use [SOLID](https://en.wikipedia
 
 ---
 
-[License](./LICENSE)
+[License](./LICENSE.md)
