@@ -5,8 +5,8 @@ export interface IAlgorithms {
 
 export interface IConfig {
   algorithm: string
-  amount: number
-  digits: number
+  amount?: number
+  digits?: number
   startWith?: number
   pattern?: string
 }
