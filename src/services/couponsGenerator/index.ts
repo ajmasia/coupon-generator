@@ -1,23 +1,38 @@
 import serviceConfig from './config'
-import { IAlgorithm } from './models/algorithms'
+import { IAlgorithms, IConfig } from './models/interfaces'
 import algorithms from './utils/Algorithm'
-
-const { amount, digits, initialValue, algorithm, pattern } = serviceConfig
 
 class Coupon {
   // Properties
-  private amount: number = amount
-  private digits: number = digits
-  private initialValue: number = initialValue
-  private pattern: string = pattern
-  private algorithm: string = algorithm
-  private useAalgorithm: IAlgorithm = algorithms
+  private amount: number
+  private digits: number
+  private startWith: number
+  private pattern: string
+  private algorithm: string
+  private useAalgorithm: IAlgorithms
+
+  constructor(config: IConfig) {
+    const {
+      amount,
+      digits,
+      startWith = 1,
+      algorithm,
+      pattern: pattern = '#A',
+    } = config
+
+    this.amount = amount
+    this.digits = digits
+    this.startWith = startWith || 1
+    this.pattern = pattern || '#A'
+    this.algorithm = algorithm
+    this.useAalgorithm = algorithms
+  }
 
   public generate(): string[] {
     switch (this.algorithm) {
       case 'secuential':
         return this.useAalgorithm.secuential(
-          this.initialValue,
+          this.startWith,
           this.digits,
           this.amount
         )
@@ -29,7 +44,7 @@ class Coupon {
         )
       default:
         return this.useAalgorithm.secuential(
-          this.initialValue,
+          this.startWith,
           this.digits,
           this.amount
         )
@@ -37,4 +52,4 @@ class Coupon {
   }
 }
 
-export default new Coupon()
+export default new Coupon(serviceConfig)
