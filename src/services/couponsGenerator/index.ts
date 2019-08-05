@@ -12,16 +12,10 @@ class Coupon {
   private useAalgorithm: IAlgorithms
 
   constructor(config: IConfig) {
-    const {
-      amount,
-      digits,
-      startWith = 1,
-      algorithm,
-      pattern: pattern = '#A',
-    } = config
+    const { amount, digits, startWith, algorithm, pattern: pattern } = config
 
-    this.amount = amount
-    this.digits = digits
+    this.amount = amount || 5
+    this.digits = digits || 5
     this.startWith = startWith || 1
     this.pattern = pattern || '#A'
     this.algorithm = algorithm
