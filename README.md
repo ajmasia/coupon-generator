@@ -8,6 +8,13 @@
 
 # Table of content
 
+- [Table of content](#table-of-content)
+  - [Install](#install)
+    - [Clone this repo](#clone-this-repo)
+    - [Run app locally](#run-app-locally)
+    - [Run app with docker](#run-app-with-docker)
+
+----
 ## Install
 To test the app, please follow the next steps:
 
@@ -37,9 +44,13 @@ Install app dependences:
 
 ```npm run docker:install```
 
-Run app:
+Run app without logs
 
 ```docker-compose up -d```
+
+Run app with logs
+
+```docker-compose up```
 
 Test the app in your browser `http://localhost:3000`.
 
