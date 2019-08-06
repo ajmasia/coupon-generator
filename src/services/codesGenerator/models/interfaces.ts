@@ -3,6 +3,6 @@ export interface IAlgorithm {
 }
 
 export interface IConfig {
-  algorithm: any
+  algorithm: string
   config: any
 }
