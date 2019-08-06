@@ -12,9 +12,10 @@ class Secuential implements IAlgorithm {
 
     const result: string[] = Array.from(Array(amount), (x, index) => {
       const code: number = index + startWith
+
       return padNumber(code.toString(), digits)
     })
-    console.log('RESULT', result)
+
     return result
   }
 }

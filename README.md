@@ -17,8 +17,10 @@
     - [Secuential](#secuential)
     - [Alphanumeric](#alphanumeric)
       - [Patterns](#patterns)
+    - [Add new algorithms to service](#add-new-algorithms-to-service)
   - [Technologies](#technologies)
   - [Changelog](#changelog)
+    - [Version 0.1.3](#version-013)
     - [Version 0.1.2](#version-012)
     - [Verion 0.1.1](#verion-011)
     - [Version 0.1.0](#version-010)
@@ -84,9 +86,11 @@ Generate numerical coupons sequentially. You can optionally configure the follow
 ```js
 const config: IConfig = {
   algorithm: 'secuential',
-  amount: 12,
-  digits: 8,
-  startWith: 345,
+  config: {
+    amount: 12,
+    digits: 8,
+    startWith: 345,
+  }
 }
 ```
 
@@ -95,9 +99,11 @@ By default, undefined parameters have the following values:
 ```js
 const config: IConfig = {
   algorithm: 'secuential',
-  amount: 5,
-  digits: 5,
-  startWith: 1,
+  config: {
+    amount: 5,
+    digits: 5,
+    startWith: 1,
+  }
 }
 ```
 
@@ -108,9 +114,11 @@ Generate alphanumeric coupons. You can optionally configure the following parame
 ```js
 const config: IConfig = {
   algorithm: 'alphanumeric',
-  amount: 5,
-  digits: 8,
-  pattern: '#A!',
+  config: {
+    amount: 5,
+    digits: 8,
+    pattern: '#A!',
+  }
 }
 ```
 
@@ -119,9 +127,11 @@ By default, undefined parameters have the following values:
 ```js
 const config: IConfig = {
   algorithm: 'secuential',
-  amount: 5,
-  digits: 5,
-  startWith: '#A',
+  config: {
+    amount: 5,
+    digits: 5,
+    startWith: '#A',
+  }
 }
 ```
 
@@ -134,6 +144,54 @@ const config: IConfig = {
 
 You can combine these patterns. For example `#a` will generate codes using numbers and lowercase letters.
 
+### Add new algorithms to service
+
+All algorithms are stored in `Algortuhms` folder. To add new one, yo need to a new file with the new algorithm name implemente the new class, following the same pattern as the existing ones:
+
+```js
+class Secuential2 implements IAlgorithm {
+  public getCodes(config: any): string[] {
+    const { amount = 5, digits = 5, startWith = 1 } = config
+    const maxNumber = getHighestNumOf(digits)
+
+    if (startWith > maxNumber - amount + 1) {
+      return ['Error: Initial value it is higher than allowed']
+    }
+
+    const result: string[] = Array.from(Array(amount), (x, index) => {
+      const code: number = index + startWith
+
+      return padNumber(code.toString(), digits)
+    })
+
+    return result
+  }
+}
+
+export default Secuential2
+```
+
+After create the new file you need add it to the algorithms index file:
+
+```js
+export { default as secuential } from './Secuential'
+export { default as alphanumeric } from './Alphanumeric'
+export { default as secuential2 } from './Alphanumeric'
+```
+
+From now on it can be used through the configuration file, passing all the configuration parameters through the config property:
+
+```js
+const config: IConfig = {
+  algorithm: 'secuential2',
+  config: {
+    amount: 5,
+    digits: 5,
+    startWith: '#A',
+  }
+}
+```
+
 ## Technologies
 
 This project use the next tecnologies trying to use [SOLID](https://en.wikipedia.org/wiki/SOLID) principles:
@@ -145,6 +203,10 @@ This project use the next tecnologies trying to use [SOLID](https://en.wikipedia
 - An some develop tools like [tslint](https://palantir.github.io/tslint/) and [babel](https://babeljs.io/)
 
 ## Changelog
+
+### Version 0.1.3
+
+- Implement strategy pattern
 
 ### Version 0.1.2
 
