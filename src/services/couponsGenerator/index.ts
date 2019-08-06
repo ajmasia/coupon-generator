@@ -1,49 +1,23 @@
-import serviceConfig from './config'
-import { IAlgorithms, IConfig } from './models/interfaces'
-import algorithms from './utils/Algorithm'
+import Algorithm from './Algorithm'
+import * as Algorithms from './Algorithms'
+import { IAlgorithm, IConfig } from './models/interfaces'
 
 class Coupon {
-  // Properties
-  private amount: number
-  private digits: number
-  private startWith: number
-  private pattern: string
+  private selectedAlgorithm: IAlgorithm
+  private config: any
   private algorithm: string
-  private useAalgorithm: IAlgorithms
+  private useAlgoritm: any
 
-  constructor(config: IConfig) {
-    const { amount, digits, startWith, algorithm, pattern: pattern } = config
-
-    this.amount = amount || 5
-    this.digits = digits || 5
-    this.startWith = startWith || 1
-    this.pattern = pattern || '#A'
+  constructor(serviceConfig: IConfig) {
+    const { config, algorithm } = serviceConfig
+    this.config = config
     this.algorithm = algorithm
-    this.useAalgorithm = algorithms
+    this.selectedAlgorithm = new Algorithms[this.algorithm]()
+    this.useAlgoritm = new Algorithm(this.selectedAlgorithm)
   }
-
-  public generate(): string[] {
-    switch (this.algorithm) {
-      case 'secuential':
-        return this.useAalgorithm.secuential(
-          this.startWith,
-          this.digits,
-          this.amount
-        )
-      case 'alphanumeric':
-        return this.useAalgorithm.alphanumeric(
-          this.digits,
-          this.amount,
-          this.pattern
-        )
-      default:
-        return this.useAalgorithm.secuential(
-          this.startWith,
-          this.digits,
-          this.amount
-        )
-    }
+  public generate() {
+    return this.useAlgoritm.generate(this.config)
   }
 }
 
-export default new Coupon(serviceConfig)
+export default Coupon
