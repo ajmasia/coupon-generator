@@ -1,21 +1,23 @@
 import Algorithm from './Algorithm'
 import * as Algorithms from './algorithms'
-import serviceConfig from './config'
+import { IAlgorithm, IConfig } from './models/interfaces'
 
-const { algorithm, config } = serviceConfig
-const useAlgoritm = new Algorithms[algorithm]()
+class Coupon {
+  private selectedAlgorithm: IAlgorithm
+  private config: any
+  private algorithm: string
+  private useAlgoritm: any
 
-const codes = new Algorithm(useAlgoritm)
-const result = codes.generate(config)
+  constructor(serviceConfig: IConfig) {
+    const { config, algorithm } = serviceConfig
+    this.config = config
+    this.algorithm = algorithm
+    this.selectedAlgorithm = new Algorithms[this.algorithm]()
+    this.useAlgoritm = new Algorithm(this.selectedAlgorithm)
+  }
+  public generate() {
+    return this.useAlgoritm.generate(this.config)
+  }
+}
 
-export default result
-
-// class AlgorithmManager {
-//     public codes: any
-
-//     contructor(serviceConfig: any) {
-//         this.codes = new Algorithm(new algorithms.alphanumeric())
-//     }
-// }
-
-// export default new AlgorithmManager()
+export default Coupon
