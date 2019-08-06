@@ -1,16 +1,16 @@
-import Coupon from './services/codesGenerator'
+import Coupon from './services/couponsGenerator'
 // import Coupons from './services/couponsGenerator'
+import serviceConfig from './services/couponsGenerator/config'
 import { getHtmlList } from './utils'
-import serviceConfig from './services/codesGenerator/config'
 
 document.addEventListener('DOMContentLoaded', () => {
   // tslint:disable-next-line: no-console
   console.log('App running ...')
 
-  // const coupons: string[] = Coupons.do
-  // tslint:disable-next-line: no-console
   const copuponsGenerator = new Coupon(serviceConfig)
   const coupons = copuponsGenerator.generate()
+
+  // tslint:disable-next-line: no-console
   console.log('Generated coupons', coupons)
 
   const app = document.getElementById('app')!
