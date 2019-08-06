@@ -1,5 +1,5 @@
 import Algorithm from './Algorithm'
-import * as Algorithms from './algorithms'
+import * as Algorithms from './Algorithms'
 import { IAlgorithm, IConfig } from './models/interfaces'
 
 class Coupon {
