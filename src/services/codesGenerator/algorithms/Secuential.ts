@@ -2,19 +2,18 @@ import { getHighestNumOf, padNumber } from '../../../utils'
 import { IAlgorithm } from '../models/interfaces'
 
 class Secuential implements IAlgorithm {
-  public getCodes(digits: number, amount: number, initValue: number): string[] {
-    const maxNumber = getHighestNumOf(digits)
+  public getCodes(config: any): string[] {
+    const maxNumber = getHighestNumOf(config.digits)
 
-    if (initValue > maxNumber - amount + 1) {
+    if (config.initValue > maxNumber - config.amount + 1) {
       return ['Error: Initial value it is higher than allowed']
     }
 
-    const result: string[] = Array.from(Array(amount), (x, index) => {
-      const code: number = index + initValue
-
-      return padNumber(code.toString(), digits)
+    const result: string[] = Array.from(Array(config.amount), (x, index) => {
+      const code: number = index + config.startWith
+      return padNumber(code.toString(), config.digits)
     })
-
+    console.log('RESULT', result);
     return result
   }
 }

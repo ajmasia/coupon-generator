@@ -1,11 +1,12 @@
 import { IConfig } from './models/interfaces'
 
 const config: IConfig = {
-  algorithm: 'alphanumeric',
-  amount: 5,
-  digits: 5,
-  pattern: '#A',
-  startWith: 1,
+  algorithm: 'secuential',
+  config: {
+    amount: 5,
+    digits: 5,
+    pattern: '#A',
+  }
 }
 
 export default config
